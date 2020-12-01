@@ -3,19 +3,27 @@ import React, { Component } from "react";;
 class App extends React.Component {
     constructor(props) {
       super(props);
-      this.state = {value: ''};
+      this.state = {
+        name: "",
+        pass: ""
+      };
   
-      this.handleChange = this.handleChange.bind(this);
+      this.handleNameChange = this.handleNameChange.bind(this);
+      this.handlePassChange = this.handlePassChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
     }
   
-    handleChange(event) {
-      this.setState({value: event.target.value});
+    handleNameChange(event) {
+      this.setState({name: event.target.name});
     }
   
+    handlePassChange(event) {
+      this.setState({pass: event.target.pass});
+    }
+
     handleSubmit(event) {
-      alert('A name was submitted: ' + this.state.value);
-      event.preventDefault();
+        alert('An account was submitted: Name is ' + this.state.name + ' pass is ' + this.state.pass);
+        event.preventDefault();
     }
   
     render() {
@@ -23,12 +31,23 @@ class App extends React.Component {
         <form onSubmit={this.handleSubmit}>
           <label>
             Name:
-            <input type="text" value={this.state.value} onChange={this.handleChange} />
+            <input
+              type="email"
+              value={this.state.name}
+              onChange={this.handleNameChange} />
           </label>
+          <br />
+          <label>
+            Pass:
+            <input
+              type="text"
+              value={this.state.pass}
+              onChange={this.handlePassChange} />
+          </label>
+          < br />
           <input type="submit" value="Submit" />
         </form>
       );
     }
   }
-
 export default App;
