@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Form, Button } from "react-bootstrap";
+import { Form, Button, Row, Col, FormGroup } from "react-bootstrap";
 
 export default class SignUp extends Component {
     constructor(props) {
@@ -9,7 +9,9 @@ export default class SignUp extends Component {
             fname: "",
             email: "",
             password: "",
-            birth: 1,
+            birthday: 23,
+            birthmonth: "Jun",
+            birthyear: 2000,
         };
 
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -28,7 +30,7 @@ export default class SignUp extends Component {
 
 
     handleSubmit(event) {
-        alert('A name was submitted: ' + this.state.fname + " " + this.state.lname + ' Pass: ' + this.state.password + " Email: " + this.state.email);
+        alert('A name was submitted: ' + this.state.fname + " " + this.state.lname + ' Pass: ' + this.state.password + " Email: " + this.state.email + " Birthday: " + this.state.birthmonth + " " + this.state.birthday );
         event.preventDefault();
     }
 
@@ -36,52 +38,96 @@ export default class SignUp extends Component {
         return (
             <Form onSubmit={this.handleSubmit}>
                 <Form.Group >
-                    <Form.Label>FirstName:</Form.Label>
-                    <Form.Control
-                        name="fname"
-                        type="text"
-                        value={this.state.fname}
-                        onChange={this.handleInputChange} placeholder="First Name" />
+                    <Row>
+                        <Col>
+                            <Form.Label>FirstName:</Form.Label>
+                            <Form.Control
+                                name="fname"
+                                type="text"
+                                value={this.state.fname}
+                                onChange={this.handleInputChange} placeholder="First Name" />
+                        </Col>
+                        <Col>
+                            <Form.Label>LastName:</Form.Label>
+                            <Form.Control
+                                name="lname"
+                                type="text"
+                                value={this.state.lname}
+                                onChange={this.handleInputChange} placeholder="Last Name" />
+                        </Col>
+                    </Row>
+                    <Form.Group>
+                        <Form.Label>Email:</Form.Label>
+                        <Form.Control
+                            name="email"
+                            type="email"
+                            value={this.state.email}
+                            onChange={this.handleInputChange} placeholder="Email" />
+                    </Form.Group>
+                    <Form.Group>
+                        <Form.Label>Pass:</Form.Label>
+                        <Form.Control
+                            name="password"
+                            type="text"
+                            value={this.state.password}
+                            onChange={this.handleInputChange} placeholder="New password" />
+                    </Form.Group>
                 </Form.Group>
-
-                <Form.Group >
-                    <Form.Label>LastName:</Form.Label>
-                    <Form.Control
-                        name="lname"
-                        type="text"
-                        value={this.state.lname}
-                        onChange={this.handleInputChange} placeholder="Last Name" />
-                </Form.Group>
-
-                <Form.Group >
-                    <Form.Label>Email:</Form.Label>
-                    <Form.Control
-                        name="email"
-                        type="email"
-                        value={this.state.email}
-                        onChange={this.handleInputChange} placeholder="Email" />
-                </Form.Group>
-
-                <Form.Group >
-                    <Form.Label>Pass:</Form.Label>
-                    <Form.Control
-                        name="password"
-                        type="text"
-                        value={this.state.password}
-                        onChange={this.handleInputChange} placeholder="New password" />
-                </Form.Group>
-
-                <Form.Group >
+                <Form.Group>
                     <Form.Label>Birthday:</Form.Label>
-                    <Form.Control
-                        name="birth"
-                        as="select"
-                        value={this.state.birth}
-                        onChange={this.handleInputChange}>
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                    </Form.Control>
+                    <Row>
+                        <Col>
+                            <Form.Control
+                                name="birthday"
+                                as="select"
+                                value={this.state.birthday}
+                                onChange={this.handleInputChange}>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                                <option>6</option>
+                                <option>7</option>
+                                <option>8</option>
+                                <option>9</option>
+                                <option>10</option>
+                                <option>11</option>
+                                <option>12</option>
+                                <option>13</option>
+                                <option>14</option>
+                                <option>15</option>
+                                <option>16</option>
+                                <option>17</option>
+                                <option>18</option>
+                                <option>19</option>
+                                <option>20</option>
+                                <option>21</option>
+                                <option>22</option>
+                                <option>23</option>
+                            </Form.Control>
+                        </Col>
+                        <Col>
+                            <Form.Control
+                                name="birthmonth"
+                                as="select"
+                                value={this.state.birthmonth}
+                                onChange={this.handleInputChange}>
+                                <option>Jan</option>
+                                <option>Feb</option>
+                                <option>Mar</option>
+                                <option>Apr</option>
+                                <option>May</option>
+                                <option>Jun</option>
+                                <option>Jul</option>
+                                <option>Aug</option>
+                                <option>Sep</option>
+                                <option>Oct</option>
+                                <option>Nov</option>
+                                <option>Dec</option>
+                            </Form.Control>
+                        </Col>
+                    </Row>
                 </Form.Group>
                 <Button variant="primary" type="submit" value="Submit">Submit</Button>
             </Form>
