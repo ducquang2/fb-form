@@ -5,7 +5,7 @@ export default class Login extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            username: "",
+            mail: "",
             password: ""            
         };
 
@@ -25,7 +25,7 @@ export default class Login extends Component {
 
 
     handleSubmit(event) {
-        alert('A name was submitted: ' + this.state.username + ' Pass: ' + this.state.password);
+        alert('A name was submitted: ' + this.state.mail + ' Pass: ' + this.state.password);
         event.preventDefault();
     }
 
@@ -33,11 +33,11 @@ export default class Login extends Component {
         return (
             <Form onSubmit={this.handleSubmit}>
                 <Form.Group >
-                    <Form.Label>Name:</Form.Label>
+                    <Form.Label>Email:</Form.Label>
                     <Form.Control
-                        name="username"
+                        name="mail"
                         type="email"
-                        value={this.state.username}
+                        value={this.state.mail}
                         onChange={this.handleInputChange} placeholder="Enter email" />
                 </Form.Group>
                 <Form.Group >
